@@ -426,5 +426,11 @@ if __name__ == "__main__":
   if run_dollar_topics_test:
     tests.append(dollar_topics_test)
 
+  failed_tests = 0
   for i in range(iterations):
-    print("test suite", "succeeded" if False not in [test() for test in tests] else "failed")
+    if False in [test() for test in tests]:
+        print("test suite failed"); failed_tests += 1
+    else:
+        print("test suite succeeded")
+
+  sys.exit(failed_tests)
