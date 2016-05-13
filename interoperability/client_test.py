@@ -414,8 +414,10 @@ if __name__ == "__main__":
   bclient = mqtt.client.Client("myclientid2".encode("utf-8"))
   bclient.registerCallback(callback2)
 
-  tests = [basic_test, retained_message_test, offline_message_queueing_test, will_message_test,
-           overlapping_subscriptions_test, keepalive_test, redelivery_on_reconnect_test]
+  #tests = [basic_test, retained_message_test, offline_message_queueing_test, will_message_test,
+  #         overlapping_subscriptions_test, keepalive_test, redelivery_on_reconnect_test]
+  tests = [basic_test, retained_message_test]#, offline_message_queueing_test, will_message_test,
+#           overlapping_subscriptions_test, keepalive_test, redelivery_on_reconnect_test]
 
   if run_zero_length_clientid_test:
     tests.append(zero_length_clientid_test)
