@@ -94,6 +94,8 @@ def basic_test():
   global aclient
   succeeded = True
   try:
+    callback.clear()
+
     aclient.connect(host=host, port=port)
     aclient.disconnect()
 
