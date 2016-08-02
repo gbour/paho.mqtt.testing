@@ -328,6 +328,7 @@ def subscribe_failure_test():
     time.sleep(.2)
     # subscribeds is a list of (msgid, [qos])
     assert callback.subscribeds[0][1][0] == 0x80, "return code should be 0x80 %s" % callback.subscribeds
+    aclient.disconnect()
   except:
     traceback.print_exc()
     succeeded = False
