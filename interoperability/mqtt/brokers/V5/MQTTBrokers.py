@@ -633,9 +633,9 @@ class MQTTBrokers:
     Topic: 'cmd/disconnectWithRC', Payload: A Disconnect Return code
             - Disconnects with the specified return code and sample properties.
     """
-    logger.info("Command Mode: Topic: %s, Payload: %s" % (topic, int(data)))
+    logger.info("Command Mode: Topic: %s, Payload: %s" % (topic, data.decode('utf8')))
     if topic == "cmd/disconnectWithRC":
-        returnCode = int(data)
+        returnCode = data.decode('utf8') # data is bytecode
         props = MQTTV5.Properties(MQTTV5.PacketTypes.DISCONNECT)
         props.ReasonString = "This is a custom Reason String"
         props.ServerReference = "tcp://localhost:1883"
