@@ -1014,8 +1014,6 @@ class Acks(Packets):
     assert len(buffer) >= 2
     assert PacketType(buffer) == self.ackType
     fhlen = self.fh.unpack(buffer, maximumPacketSize)
-    assert self.fh.remainingLength in [2, 3, 4], \
-        "%s packet is wrong length %d" % (self.ackName, self.fh.remainingLength)
     assert len(buffer) >= fhlen + self.fh.remainingLength
     self.packetIdentifier = readInt16(buffer[fhlen:])
     curlen = fhlen + 2
